@@ -243,7 +243,7 @@ void UbloxGPSReader::mutateGPSData(unsigned char dataArray[100]){
 		case 0x12:
 			gpsVelocityNorth = (float)(((dataArray[13]) << 24) | ((dataArray[12]) << 16) | ((dataArray[11]) << 8) | (dataArray[10])) * 0.01;  // cm/s to m/s
 			gpsVelocityEast = (float)(((dataArray[17]) << 24) | ((dataArray[16]) << 16) | ((dataArray[15]) << 8) | (dataArray[14])) * 0.01;  // cm/s to m/s
-			gpsVelocityUp = (float)(((dataArray[21]) << 24) | ((dataArray[20]) << 16) | ((dataArray[19]) << 8) | (dataArray[18])) * 0.01;  // cm/s to m/s
+			gpsVelocityDown = (float)(((dataArray[21]) << 24) | ((dataArray[20]) << 16) | ((dataArray[19]) << 8) | (dataArray[18])) * 0.01;  // cm/s to m/s
 			gps3D = (float)(((dataArray[25]) << 24) | ((dataArray[24]) << 16) | ((dataArray[23]) << 8) | (dataArray[22])) * 0.01;  // cm/s to m/s
 			gps2D = (float)(((dataArray[29]) << 24) | ((dataArray[28]) << 16) | ((dataArray[27]) << 8) | (dataArray[26])) * 0.01;  // m/s to m/s
 			gpsCourse = (float)(((dataArray[33]) << 24) | ((dataArray[32]) << 16) | ((dataArray[31]) << 8) | (dataArray[30]))/ (float)100000;  //deg
@@ -257,7 +257,7 @@ void UbloxGPSReader::mutateGPSData(unsigned char dataArray[100]){
 			gpsStatus = (int)dataArray[26];
 			gpsVelocityNorth = (float)(((dataArray[57]) << 24) | ((dataArray[56]) << 16) | ((dataArray[55]) << 8) | (dataArray[54])) * 0.001;  // mm/s to m/s
 			gpsVelocityEast = (float)(((dataArray[61]) << 24) | ((dataArray[60]) << 16) | ((dataArray[59]) << 8) | (dataArray[58])) * 0.001;  // mm/s to m/s
-			gpsVelocityUp = (float)(((dataArray[65]) << 24) | ((dataArray[64]) << 16) | ((dataArray[63]) << 8) | (dataArray[62])) * 0.001;  // mm/s to m/s
+			gpsVelocityDown = (float)(((dataArray[65]) << 24) | ((dataArray[64]) << 16) | ((dataArray[63]) << 8) | (dataArray[62])) * 0.001;  // mm/s to m/s
 			gpsCourse = (float)(((dataArray[73]) << 24) | ((dataArray[72]) << 16) | ((dataArray[71]) << 8) | (dataArray[70]))/ (float)100000;  //deg
 			gpsNumSatellites = (int)dataArray[29];
 			gpsPDOP = (float)(((dataArray[83]) << 8) | (dataArray[82])) * 0.01; // no units
@@ -268,7 +268,7 @@ void UbloxGPSReader::mutateGPSData(unsigned char dataArray[100]){
 
 		/*
 		printf("Lat | Lon:  %.6f %.6f\n",gpsLat,gpsLon);
-      	printf("NED vel:    %.2f %.2f %.2f\n",gpsVelocityNorth,gpsVelocityEast,gpsVelocityUp);
+      	printf("NED vel:    %.2f %.2f %.2f\n",gpsVelocityNorth,gpsVelocityEast,gpsVelocityDown);
        	printf("h | hmsl:   %.2f %.2f\n",gpsHeightAboveGeoid,gpsHeightAboveMeanSeaLevel);
         printf("Course:     %.2f\n",gpsCourse);
         printf("Status:     %d\n",gpsStatus);

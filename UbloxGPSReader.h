@@ -56,7 +56,7 @@ public:
     float gpsHeightAboveMeanSeaLevel;
     float gpsVelocityNorth;
     float gpsVelocityEast;
-    float gpsVelocityUp;
+    float gpsVelocityDown;
     float gps3D;
     float gps2D;
     float gpsCourse;
